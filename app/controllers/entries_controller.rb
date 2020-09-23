@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :authenticate_user!
+  around_action :entry_not_found_check, only: [:show, :update, :edit]
 
   def index
     @entries = Entry.where(user_id: current_user.id)
@@ -11,12 +12,12 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
-    render 'unauthorized' and return if not belongs_to_user 
+    render 'unauthorized' and return if not belongs_to_user
   end
 
   def update
     @entry = Entry.find(params[:id])
-    render 'unauthorized' and return if not belongs_to_user 
+    render 'unauthorized' and return if not belongs_to_user
     if @entry.update(entry_params)
       redirect_to @entry
     else
@@ -26,7 +27,7 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.find(params[:id])
-    render 'unauthorized' and return if not belongs_to_user 
+    render 'unauthorized' and return if not belongs_to_user
   end
 
   def create
@@ -54,4 +55,13 @@ class EntriesController < ApplicationController
   def belongs_to_user
     @entry.user_id == current_user.id
   end
+
+  def entry_not_found_check
+    begin
+      yield
+    rescue
+      render 'unauthorized'
+    end
+  end
+
 end
