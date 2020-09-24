@@ -3,8 +3,7 @@ class EntriesController < ApplicationController
   around_action :entry_not_found_check, only: [:show, :update, :edit]
 
   """
-    STUFF TO ADD: Date range picker 
-
+    STUFF TO ADD: Date range picker to filter on
   """
   def index
     @entries = Entry.where(user_id: current_user.id)

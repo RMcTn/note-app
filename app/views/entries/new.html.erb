@@ -1,2 +1,4 @@
-<h1>New entry</h1>
+<% time = Time.new %>
+<h1>New entry for <%= time.strftime("#{time.day.ordinalize} %B %Y")%></h1>
 <%= render 'form' %>
+<%= link_to 'Back', entries_path %>

@@ -1,5 +1,5 @@
 <div class="entry">
-  <h2><%= entry.title %> <%= entry.created_at.strftime("%d %B %Y")%></h2>
+  <h2><%= entry.title %> <%= entry.created_at.strftime("#{entry.created_at.day.ordinalize} %B %Y")%></h2>
   <h3>Updated: <%= entry.updated_at %></h3>
   <%= entry.text %>
   <%= entry.content %>
