@@ -13,13 +13,14 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     render 'unauthorized' and return if not belongs_to_user
+    render 'edit'
   end
 
   def update
     @entry = Entry.find(params[:id])
     render 'unauthorized' and return if not belongs_to_user
     if @entry.update(entry_params)
-      redirect_to @entry
+      render 'edit'
     else
       render 'edit'
     end
@@ -49,7 +50,7 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:title, :text)
+    params.require(:entry).permit(:title, :content)
   end
 
   def belongs_to_user

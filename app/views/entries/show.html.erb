@@ -1,4 +1,9 @@
 <h1><%= @entry.title %></h1>
-<p><%= @entry.text %></p>
+<textarea id="editor" disabled="true" readonly><%= @entry.text %></textarea>
 <%= @entry.user_id %>
 <%= link_to 'Back', entries_path %>
+<script>
+  let simplemde = new SimpleMDE({ element: document.getElementById("editor"), 
+    status: false,
+    toolbar: false});
+</script>
