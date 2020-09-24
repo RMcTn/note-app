@@ -2,6 +2,10 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!
   around_action :entry_not_found_check, only: [:show, :update, :edit]
 
+  """
+    STUFF TO ADD: Date range picker 
+
+  """
   def index
     @entries = Entry.where(user_id: current_user.id)
   end
