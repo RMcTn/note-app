@@ -75,7 +75,7 @@ class EntriesController < ApplicationController
   def entry_not_found_check
     begin
       yield
-    rescue
+    rescue 
       render 'unauthorized'
     end
   end
