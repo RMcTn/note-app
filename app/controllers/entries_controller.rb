@@ -6,7 +6,6 @@ class EntriesController < ApplicationController
     tags
     nav bar
     in index, preload without body attachments (action text https://edgeguides.rubyonrails.org/action_text_overview.html#avoid-n-1-queries)
-    add attachment download (check blob.html.erb)
 =end
   def index
     @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)

@@ -1,10 +1,10 @@
 <div class="entry">
-  <h2><%= entry.title %> <%= entry.created_at.strftime("#{entry.created_at.day.ordinalize} %B %Y")%></h2>
-  <h3>Updated: <%= entry.updated_at %></h3>
+  <div class="entry-title"><h2><%= entry.title %></h2> <p><%=entry.created_at.strftime("#{entry.created_at.day.ordinalize} %B %Y")%></p></div>
   <%= entry.text %>
   <%= entry.content %>
   <%= link_to 'Edit', edit_entry_path(entry) %>
   <%= link_to 'Delete', entry_path(entry),
     method: :delete,
     data: {confirm: 'Are you sure?'} %>
+  <p><small>Updated: <%= entry.updated_at %></small></p>
 </div>
