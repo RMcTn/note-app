@@ -1,6 +1,14 @@
 <%= link_to 'Create new entry', new_entry_path %>
+<%= form_with(url: search_entries_path, method: "get", local: true) do %>
+  <%= label_tag(:start_date, "Start date:") %>
+  <%= select_date Date.today, prefix: :start_date %>
+  <%= label_tag(:end_date, "End date:") %>
+  <%= select_date Date.yesterday, prefix: :end_date %>
+  <%= submit_tag("Filter") %>
+<% end %>
 <div class="entry-container">
   <% @entries.each do |entry| %>
     <%= render partial: 'entry', locals: {entry: entry} %>
   <% end %>
 </div>
+

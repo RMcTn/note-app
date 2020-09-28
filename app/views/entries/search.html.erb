@@ -1,0 +1,6 @@
+<div class="entry-container">
+  <% @entries.each do |entry| %>
+    <%= render partial: 'entry', locals: {entry: entry} %>
+  <% end %>
+</div>
+<%= link_to 'Back', entries_path %>
