@@ -50,7 +50,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.user_id = current_user.id
     if @entry.save
-      redirect_to @entry
+      redirect_to action: 'index'
     else
       render 'new'
     end
