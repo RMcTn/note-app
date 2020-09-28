@@ -6,20 +6,19 @@ class EntriesController < ApplicationController
     tags
     nav bar
     in index, preload without body attachments (action text https://edgeguides.rubyonrails.org/action_text_overview.html#avoid-n-1-queries)
+    add attachment download (check blob.html.erb)
 =end
   def index
     @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def search
-    if params.has_key?(:start_date) and params.has_key?(:end_date)
-      start_date = params[:start_date]
-      start_date = DateTime.new(start_date[:year].to_i, start_date[:month].to_i, start_date[:day].to_i).end_of_day
-      end_date = params[:end_date]
-      end_date = DateTime.new(end_date[:year].to_i, end_date[:month].to_i, end_date[:day].to_i)
-      @entries = Entry.where(user_id: current_user.id, created_at: end_date..start_date).order(created_at: :desc)
-      render 'search' 
-    end
+    return unless params.has_key?(:start_date) and params.has_key?(:end_date) 
+    start_date = params[:start_date]
+    start_date = DateTime.new(start_date[:year].to_i, start_date[:month].to_i, start_date[:day].to_i).end_of_day
+    end_date = params[:end_date]
+    end_date = DateTime.new(end_date[:year].to_i, end_date[:month].to_i, end_date[:day].to_i)
+    @entries = Entry.where(user_id: current_user.id, created_at: end_date..start_date).order(created_at: :desc)
   end
 
   def new
