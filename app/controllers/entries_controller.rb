@@ -10,6 +10,7 @@ class EntriesController < ApplicationController
     !!! lower friction for adding entry
     pdf render
     remove border from attachment in index
+    put date to side of entry (above for mobile?)
 =end
   def index
     @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)
