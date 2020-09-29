@@ -4,8 +4,11 @@ class EntriesController < ApplicationController
 
 =begin  
     tags
-    nav bar
+    !!! nav bar
     in index, preload without body attachments (action text https://edgeguides.rubyonrails.org/action_text_overview.html#avoid-n-1-queries)
+    validate dates
+    !!! lower friction for adding entry
+    pdf render
 =end
   def index
     @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)
@@ -49,6 +52,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.user_id = current_user.id
     if @entry.save
+      flash[:notice] = "Created post #{@entry.title}!"
       redirect_to action: 'index'
     else
       render 'new'
@@ -59,6 +63,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     render 'unauthorized' and return if not belongs_to_user 
     @entry.destroy
+    flash[:notice] = "Deleted post #{@entry.title}!"
     redirect_to entries_path
   end
 

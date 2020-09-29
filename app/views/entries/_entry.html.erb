@@ -1,4 +1,4 @@
-<div class="entry">
+<article class="entry">
   <div class="entry-title"><h2><%= entry.title %></h2> <p><%=entry.created_at.strftime("#{entry.created_at.day.ordinalize} %B %Y")%></p></div>
   <%= entry.text %>
   <%= entry.content %>
@@ -7,4 +7,4 @@
     method: :delete,
     data: {confirm: 'Are you sure?'} %>
   <p><small>Updated: <%= entry.updated_at %></small></p>
-</div>
+</article>
