@@ -11,6 +11,10 @@
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
 .trix-content {
+	.attachment--preview img {
+		max-height: 600px;
+		width: auto;
+	}
   .attachment-gallery {
     > action-text-attachment,
     > .attachment {

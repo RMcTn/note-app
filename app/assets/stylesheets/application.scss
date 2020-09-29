@@ -29,17 +29,17 @@
 .entry-container {
 	display: flex;
 	flex-direction: column;
-	border: solid;
-	border-color: red;
 }
 
 .panel {
 	max-width: 50em;
 	margin: 0 auto;
+	border: 3px solid #ccc;
 }
 
 .entry {
-	border: dashed;
+	border-top: 2px solid #1d3557;
+	padding-left: 2em;
 }
 
 .notice {
