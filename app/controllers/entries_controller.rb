@@ -2,16 +2,6 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!
   around_action :entry_not_found_check, only: [:show, :update, :edit]
 
-=begin  
-    tags
-    !!! nav bar
-    in index, preload without body attachments (action text https://edgeguides.rubyonrails.org/action_text_overview.html#avoid-n-1-queries)
-    validate dates
-    !!! lower friction for adding entry
-    pdf render
-    remove border from attachment in index
-    put date to side of entry (above for mobile?)
-=end
   def index
     @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)
   end
