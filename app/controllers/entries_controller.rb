@@ -9,6 +9,7 @@ class EntriesController < ApplicationController
     validate dates
     !!! lower friction for adding entry
     pdf render
+    remove border from attachment in index
 =end
   def index
     @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)

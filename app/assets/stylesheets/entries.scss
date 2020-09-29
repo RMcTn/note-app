@@ -1,3 +1,18 @@
 // Place all the styles related to the Entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.attachment figcaption {
+	display: inline-block;
+}
+
+.attachment {
+	width: 100%;
+	border: none;
+}
+
+.attachment__attributes {
+	display: block;
+	text-align: left;
+}
+

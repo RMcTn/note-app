@@ -1,16 +1,22 @@
 <figure class="attachment attachment--<%= blob.representable? ? "preview" : "file" %> attachment--<%= blob.filename.extension %>">
-  <%= link_to rails_blob_path(blob, disposition: "attachment") do %>
     <% if blob.representable? %>
       <%= image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ]) %>
+    <% else %>
+      <%= image_tag 'File-256.png', size: '32x32' %>
     <% end %>
+    
 
     <figcaption class="attachment__caption">
       <% if caption = blob.try(:caption) %>
         <%= caption %>
       <% else %>
+        <%= link_to rails_blob_path(blob, disposition: "attachment") do %>
         <span class="attachment__name"><%= blob.filename %></span>
-        <span class="attachment__size"><%= number_to_human_size blob.byte_size %></span>
-      <% end %>
-  <% end %>
+        <span class="attachment__attributes">
+          <span class="attachment__size"><%= number_to_human_size blob.byte_size %></span>
+          <span class="attachment__download">  · Download</span>
+        </span>
+        <% end %>
+    <% end %>
   </figcaption>
 </figure>
