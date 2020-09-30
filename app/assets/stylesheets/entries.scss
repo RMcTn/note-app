@@ -11,7 +11,7 @@
 	border: none !important;
 }
 
-.attachment__attributes {
+.attachment__link {
 	display: block;
 	text-align: left;
 }
@@ -19,4 +19,8 @@
 .attachment__name {
 	display: block;
 	text-align: left;
+}
+
+.attachment__download {
+	text-decoration: underline;
 }
