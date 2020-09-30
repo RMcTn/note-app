@@ -24,3 +24,7 @@
 .attachment__download {
 	text-decoration: underline;
 }
+
+.attachment__size::before {
+	content: '' !important;
+}
