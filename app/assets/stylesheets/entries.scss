@@ -28,3 +28,7 @@
 .attachment__size::before {
 	content: '' !important;
 }
+
+.attachment__caption__text {
+	word-break: break-word;
+}

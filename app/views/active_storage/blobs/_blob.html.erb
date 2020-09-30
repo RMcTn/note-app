@@ -10,7 +10,7 @@
       <% if blob.representable? %>
         <span class="attachment__attributes">
         <% if caption = blob.try(:caption) %>
-          <%= caption %>
+          <span class="attachment__caption__text"><%= caption %></span>
           <br>
         <% else %>
           <span class="attachment__name"><%= blob.filename %></span>
