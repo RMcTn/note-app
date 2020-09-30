@@ -7,16 +7,20 @@
     
 
     <figcaption class="attachment__caption">
-      <% if caption = blob.try(:caption) %>
-        <%= caption %>
+      <% if blob.representable? %>
         <span class="attachment__attributes">
-          <span> · </span>
-          <span class="attachment__size"><%= number_to_human_size blob.byte_size %></span>
-          <span> · </span>
-          <%= link_to rails_blob_path(blob, disposition: "attachment") do %>
-            <span class="attachment__download">Download</span>
-          <% end %>
-        </span>
+        <% if caption = blob.try(:caption) %>
+          <%= caption %>
+          <br>
+        <% else %>
+          <span class="attachment__name"><%= blob.filename %></span>
+        <% end %>
+            <span class="attachment__size"><%= number_to_human_size blob.byte_size %></span>
+            <span> · </span>
+            <%= link_to rails_blob_path(blob, disposition: "attachment") do %>
+              <span class="attachment__download">Download</span>
+            <% end %>
+          </span>
       <% else %>
         <%= link_to rails_blob_path(blob, disposition: "attachment"), class: "attachment__link" do %>
         <span class="attachment__name"><%= blob.filename %></span>
