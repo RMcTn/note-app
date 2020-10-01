@@ -1,7 +1,5 @@
-<%= link_to 'Back', entries_path %>
-<div class="entry-container">
-  <% @entries.each do |entry| %>
-    <%= render partial: 'entry', locals: {entry: entry} %>
-  <% end %>
+<div class="panel">
+  <%= link_to 'Back', entries_path %>
+  <%= render "entry_container" %>
+  <%= link_to 'Back', entries_path %>
 </div>
-<%= link_to 'Back', entries_path %>

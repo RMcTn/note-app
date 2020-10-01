@@ -19,7 +19,13 @@ class EntriesController < ApplicationController
     start_date = DateTime.new(start_date[:year].to_i, start_date[:month].to_i, start_date[:day].to_i).end_of_day
     end_date = params[:end_date]
     end_date = DateTime.new(end_date[:year].to_i, end_date[:month].to_i, end_date[:day].to_i)
-    @entries = Entry.where(user_id: current_user.id, created_at: end_date..start_date).order(created_at: :desc)
+    @pagy, @entries = pagy(Entry.where(user_id: current_user.id, created_at: end_date..start_date).order(created_at: :desc))
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: "entries", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
+    end
   end
 
   def new
