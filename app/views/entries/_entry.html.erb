@@ -6,5 +6,5 @@
   <%= link_to 'Delete', entry_path(entry),
     method: :delete,
     data: {confirm: 'Are you sure?'} %>
-  <p><small>Updated: <%= entry.updated_at %></small></p>
+  <p class="entry-updated-at"><small>Updated: <%= entry.updated_at %></small></p>
 </article>
