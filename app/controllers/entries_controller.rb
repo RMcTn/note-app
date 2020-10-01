@@ -4,6 +4,13 @@ class EntriesController < ApplicationController
 
   def index
     @pagy, @entries = pagy(Entry.where(user_id: current_user.id).order(created_at: :desc))
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: "entries", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
+    end
   end
 
   def search

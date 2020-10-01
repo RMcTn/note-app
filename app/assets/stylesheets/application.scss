@@ -29,7 +29,6 @@
 .entry-container {
 	display: flex;
 	flex-direction: column;
-	border-bottom: 2px solid #1d3557;
 }
 
 .panel {
@@ -48,3 +47,6 @@
 	background: green;
 }
 
+.pagination {
+	display: none;
+}

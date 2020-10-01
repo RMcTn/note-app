@@ -8,10 +8,15 @@
     <%= select_date Date.yesterday, prefix: :end_date %>
     <%= submit_tag("Filter") %>
   <% end %>
-  <div class="entry-container">
-    <% @entries.each do |entry| %>
-      <%= render partial: 'entry', locals: {entry: entry} %>
-    <% end %>
+  <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+    <div class="entry-container">
+      <div data-target="infinite-scroll.entries">
+        <%= render "entries" %>
+      </div>
+    </div>
+
+    <div data-target="infinite-scroll.pagination">
+      <%== pagy_nav(@pagy) %>
+    </div>
   </div>
-  <%== pagy_nav(@pagy) %>
 </div>
