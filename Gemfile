@@ -58,3 +58,5 @@ gem "devise", "~> 4.7"
 gem "image_processing", "~> 1.12"
 
 gem "activesupport", "~> 6.0"
+
+gem "pagy", "~> 3.8"

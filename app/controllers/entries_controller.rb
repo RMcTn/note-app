@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   around_action :entry_not_found_check, only: [:show, :update, :edit]
 
   def index
-    @entries = Entry.where(user_id: current_user.id).order(created_at: :desc)
+    @pagy, @entries = pagy(Entry.where(user_id: current_user.id).order(created_at: :desc))
   end
 
   def search
