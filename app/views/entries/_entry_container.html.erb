@@ -1,8 +1,6 @@
 <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
-  <div class="entry-container">
-    <div data-target="infinite-scroll.entries">
-      <%= render "entries" %>
-    </div>
+  <div class="entry-container" data-target="infinite-scroll.entries">
+    <%= render "entries" %>
   </div>
 
   <div data-target="infinite-scroll.pagination">
