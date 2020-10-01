@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .attachment figcaption {
-	display: inline-block;
+	display: block;
 }
 
 .attachment {
@@ -13,12 +13,10 @@
 
 .attachment__link {
 	display: block;
-	text-align: left;
 }
 
 .attachment__name {
 	display: block;
-	text-align: left;
 }
 
 .attachment__download {
