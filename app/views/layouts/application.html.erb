@@ -10,8 +10,22 @@
   </head>
 
   <body>
+    <nav class="nav-bar" data-turbolinks-permanent="">
+      <ul>
+        <% if current_user %>
+          <li><%= link_to 'Home', entries_path %></li>
+          <li><%= link_to 'New', new_entry_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <main>
     <%= yield %>
+    </main>
   </body>
 </html>
