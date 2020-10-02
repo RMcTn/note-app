@@ -1,10 +1,8 @@
-<div class="panel">
-  <%= form_with(url: search_entries_path, method: "get", local: true) do %>
-    <%= label_tag(:start_date, "Start date:") %>
-    <%= select_date Date.today, prefix: :start_date %><br>
-    <%= label_tag(:end_date, "End date:") %>
-    <%= select_date Date.yesterday, prefix: :end_date %>
-    <%= submit_tag("Filter") %>
-  <% end %>
-  <%= render "entry_container" %>
-</div>
+<%= form_with(url: search_entries_path, method: "get", local: true) do %>
+  <%= label_tag(:start_date, "Start date:") %>
+  <%= select_date Date.today, prefix: :start_date %><br>
+  <%= label_tag(:end_date, "End date:") %>
+  <%= select_date Date.yesterday, prefix: :end_date %>
+  <%= submit_tag("Filter") %>
+<% end %>
+<%= render "entry_container" %>
