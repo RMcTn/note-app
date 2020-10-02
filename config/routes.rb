@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  get 'entries/index'
   devise_for :users
   resources :entries do
     collection do
@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: "entries#index"
 end
