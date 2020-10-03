@@ -60,3 +60,5 @@ gem "image_processing", "~> 1.12"
 gem "activesupport", "~> 6.0"
 
 gem "pagy", "~> 3.8"
+
+gem "font-awesome-rails", "~> 4.7"
