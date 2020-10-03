@@ -42,7 +42,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     render 'unauthorized' and return if not belongs_to_user
     if @entry.update(entry_params)
-      render 'edit'
+      redirect_to entries_path
     else
       render 'edit'
     end
