@@ -59,8 +59,18 @@
 .edit-btn {
 	text-decoration: none;
 	color: black;
+	padding-top: 1em;
 
 	&:hover {
 		color: rgba(0, 0, 0, 0.6);
 	}
+}
+
+.trix-content:after {
+	content: "";
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	margin-top: 1em;
+	margin-bottom: 1em;
+	display: block;
+	max-width: 25%;
 }
