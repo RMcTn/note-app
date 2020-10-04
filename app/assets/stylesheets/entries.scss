@@ -45,3 +45,22 @@
 	margin-bottom: 0;
 	padding-bottom: 1em;
 }
+
+.delete-btn {
+	text-decoration: none;
+	color: black;
+
+	&:hover {
+		color: red;
+	}
+	padding-left: 0.5em;
+}
+
+.edit-btn {
+	text-decoration: none;
+	color: black;
+
+	&:hover {
+		color: rgba(0, 0, 0, 0.6);
+	}
+}

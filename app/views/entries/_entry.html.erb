@@ -2,9 +2,13 @@
   <h2><%= entry.title %></h2> <p><%=entry.created_at.strftime("#{entry.created_at.day.ordinalize} %B %Y")%></p>
   <%= entry.text %>
   <%= entry.content %>
-  <%= link_to 'Edit', edit_entry_path(entry) %>
-  <%= link_to 'Delete', entry_path(entry),
-    method: :delete,
-    data: {confirm: 'Are you sure?'} %>
+  <%= link_to edit_entry_path(entry), class: "edit-btn" do %>
+    <%= fa_icon "edit" %>
+    Edit
+  <% end %>
+  <%= link_to entry_path(entry), method: :delete, class: "delete-btn", data: { confirm: "Are you sure?" } do %>
+    <%= fa_icon "trash" %>
+    Delete
+  <% end %>
   <p class="entry-updated-at"><small>Updated: <%= entry.updated_at %></small></p>
 </article>
