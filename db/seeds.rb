@@ -8,7 +8,7 @@
 Entry.destroy_all
 User.destroy_all
 user = User.new(email: 'a@a.com', password: 'password', password_confirmation: 'password')
-user.skip_confirmation!
+#user.skip_confirmation!
 user.save!
 
 50.times do |i|
