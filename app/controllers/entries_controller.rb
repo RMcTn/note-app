@@ -4,6 +4,7 @@ class EntriesController < ApplicationController
 
   def index
     @pagy, @entries = pagy(Entry.where(user_id: current_user.id).order(created_at: :desc))
+    redirect_to new_entry_path if @entries.empty?
 
     respond_to do |format|
       format.html
