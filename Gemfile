@@ -62,3 +62,4 @@ gem "pagy", "~> 3.8"
 gem "font-awesome-rails", "~> 4.7"
 
 gem "pg", "~> 1.2"
+gem "turbo-rails"

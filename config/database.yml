@@ -12,7 +12,8 @@ default: &default
 development:
   <<: *default
   host: localhost
-  username: user
+  username: postgres
+  password: password
   database: note-dev
 
 # Warning: The database defined as "test" will be erased and

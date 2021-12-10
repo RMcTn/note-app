@@ -26,7 +26,7 @@
             <% end %>
           </li>
           <li>  
-            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= button_to destroy_user_session_path, method: :delete, data: {turbo: false}, id: "sign_out_button" do %>
               <%= fa_icon "sign-out" %>
               Sign out
             <% end %>
