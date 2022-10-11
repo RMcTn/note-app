@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+  has_many :entries
+
   def send_on_create_confirmation_instructions
     # Intentionally do nothing here!
   end

@@ -2,7 +2,7 @@
   "name": "dev_journaling_app",
   "private": true,
   "dependencies": {
-    "@hotwired/turbo-rails": "^7.1.0",
+    "@hotwired/turbo-rails": "^7.2.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.0.3-3",
     "@rails/activestorage": "^6.0.0",
