@@ -1,6 +1,6 @@
 <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
   <%= turbo_stream_from current_user %>
-  <div class="entry-container" data-target="infinite-scroll.entries">
+  <div id="entries-container" class="entry-container" data-target="infinite-scroll.entries">
     <%= render "entries" %>
   </div>
 

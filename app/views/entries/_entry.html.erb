@@ -1,5 +1,5 @@
+<turbo-frame id="<%=dom_id(entry)%>">
 <article class="entry">
-  <turbo-frame id="<%=dom_id(entry)%>">
     <h2><%= entry.title %></h2> <p><%=entry.created_at.strftime("#{entry.created_at.day.ordinalize} %B %Y")%></p>
     <%= entry.text %>
     <%= entry.content %>
@@ -12,5 +12,5 @@
       Delete
     <% end %>
     <p class="entry-updated-at"><small>Updated: <%= entry.updated_at %></small></p>
-  </turbo-frame>
 </article>
+</turbo-frame>
